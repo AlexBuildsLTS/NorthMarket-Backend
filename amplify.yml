@@ -1,0 +1,28 @@
+version: 1
+applications:
+  - appRoot: backend
+    backend:
+      phases:
+        build:
+          commands:
+            - mvn clean install
+        post_build:
+          commands:
+            - mvn package
+      artifacts:
+        baseDirectory: target
+        files:
+          - '**/*'
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - cd ../frontend
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: ../frontend/dist
+        files:
+          - '**/*'
