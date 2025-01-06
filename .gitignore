@@ -1,0 +1,15 @@
+# Ignore env files
+.env
+.env.*
+
+# Ignore build directories
+dist/
+target/
+
+# Ignore IDE-specific files
+.idea/
+*.iml
+
+# Ignore Docker build files (if not needed in version control)
+*.log
+docker-compose.override.yml
